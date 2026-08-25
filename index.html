@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konan Yao | Personal Page</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome in Konan's world</title>
 
     <style>
+       
         body {
-            background-color: #f4f4f4;
+            background-color: #f0f2f5;
             color: #222222;
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -15,56 +20,143 @@
             padding: 40px 20px;
         }
 
+      
         main {
             background-color: white;
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+
+        
+        header {
+            background-color: #990000;
+            color: white;
+            text-align: center;
+            padding: 50px 30px;
         }
 
         h1 {
-            color: #990000;
+            margin: 0;
+            font-size: 36px;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 18px;
+        }
+
+        
+        .content {
+            padding: 35px;
         }
 
         h2 {
-            color: #444444;
+            color: #990000;
+            border-bottom: 2px solid #eeeeee;
+            padding-bottom: 8px;
         }
 
-        a {
-            color: #990000;
+        
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .interests li {
+            background-color: #f3e6e6;
+            color: #700000;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+
+        
+        .links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            background-color: #990000;
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+
+        
+        .links a:hover {
+            background-color: #700000;
+        }
+
+        footer {
+            background-color: #f8f8f8;
+            color: #666666;
+            text-align: center;
+            padding: 18px;
         }
     </style>
 </head>
 
 <body>
     <main>
-        <h1>Hello, I'm Konan Yao</h1>
+        <header>
+            <h1>Hello, I'm Konan Yao</h1>
+            <p>Computer Science Student | Future Cloud Security Professional</p>
+        </header>
 
-        <p>
-            I am a Computer Science student at Indiana University Indianapolis
-            with an interest in cloud computing, cybersecurity, and software
-            development. I am currently building my technical skills and working
-            toward a career in cloud security.
-        </p>
+        <div class="content">
+            <section>
+                <h2>About Me</h2>
 
-        <h2>My Interests</h2>
+                <p>
+                    I am a Computer Science student at Indiana University
+                    Indianapolis. I am interested in cloud computing,
+                    cybersecurity, and software development. I am currently
+                    building my technical skills and working toward a career
+                    in cloud security.
+                </p>
+            </section>
 
-        <ul>
-            <li>Cloud computing</li>
-            <li>Cybersecurity</li>
-            <li>Programming and web development</li>
-            <li>Learning new technologies</li>
-        </ul>
+            <section>
+                <h2>My Interests</h2>
 
-        <h2>My Links</h2>
+                <ul class="interests">
+                    <li>Cloud Computing</li>
+                    <li>Cybersecurity</li>
+                    <li>Programming</li>
+                    <li>Web Development</li>
+                    <li>New Technologies</li>
+                </ul>
+            </section>
 
-        <ul>
-            <li>
-                <a href="https://github.com/kyao1">My GitHub Profile</a>
-            </li>
-        </ul>
+            <section>
+                <h2>Connect With Me</h2>
+
+                <div class="links">
+                    <a href="https://github.com/kyao1"
+                       target="_blank">
+                        GitHub
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/konanyao"
+                       target="_blank">
+                        LinkedIn
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Created by Konan Yao for NEWM-N 220</p>
+        </footer>
     </main>
 </body>
+
 </html>
