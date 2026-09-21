@@ -1,53 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Choice at a Time</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KYA Planets</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="container">
-        <h1>One Choice at a Time</h1>
-        <p>Small choices can create meaningful progress.</p>
+  <main>
+    <h1>KYA Planets</h1>
+    <p>Click a planet to learn a fun fact.</p>
 
-        <section>
-            <h2>Progress Points</h2>
-            <p id="count">0</p>
+    <div class="controls">
+      <button id="sortOrder">Sort by distance from the Sun</button>
+      <button id="sortDiameter">Sort by diameter</button>
+    </div>
 
-            <button id="add1">Small Step</button>
-            <button id="add5">Good Decision</button>
-            <button id="add10">Major Progress</button>
-        </section>
+    <div id="wrapper"></div>
+  </main>
 
-        <section>
-            <h2>Page Theme</h2>
-            <button id="themeButton">Light/Dark Mode</button>
-        </section>
-
-        <section>
-            <h2>Areas of Life</h2>
-            <p>Move your mouse over a square to change its color.</p>
-
-            <div class="squares">
-                <div>
-                    <h3>Faith</h3>
-                    <div class="square" id="square1"></div>
-                </div>
-                <div>
-                    <h3>Health</h3>
-                    <div class="square" id="square2"></div>
-                </div>
-                <div>
-                    <h3>Career</h3>
-                    <div class="square" id="square3"></div>
-                </div>
-            </div>
-        </section>
-
-        <button id="resetButton">Start a New Day</button>
-    </main>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
