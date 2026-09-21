@@ -1,65 +1,198 @@
+:root {
+  --ink: #12242e;
+  --ink-deep: #0a151b;
+  --card-bg: #1b323f;
+  --card-bg-hover: #24404f;
+  --card-border: #2a4655;
+  --copper: #b5651d;
+  --copper-deep: #8a4a12;
+  --copper-soft: #d99a5c;
+  --text-light: #f4ede4;
+  --muted-text: #b8c4c8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: white;
-    color: black;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--ink);
+  color: var(--text-light);
+  margin: 0;
+  padding: 24px;
+  line-height: 1.5;
 }
 
-body.dark {
-    background-color: #111827;
-    color: white;
+main {
+  max-width: 1000px;
+  margin: auto;
 }
 
-.container {
-    max-width: 750px;
-    margin: auto;
-    padding: 40px 20px;
-    text-align: center;
+h1 {
+  color: var(--text-light);
+  margin-bottom: 4px;
+  font-size: 1.8rem;
 }
 
-section {
-    border: 2px solid #777777;
-    border-radius: 10px;
-    margin: 25px 0;
-    padding: 25px;
+main > p.subtitle {
+  color: var(--muted-text);
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 
-#count {
-    font-size: 50px;
-    font-weight: bold;
-    margin: 15px;
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.planet-card {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-left: 6px solid var(--copper);
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 0;
+  overflow-wrap: break-word;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-left-color 0.15s ease;
+}
+
+.planet-card:hover,
+.planet-card:focus-visible {
+  background-color: var(--card-bg-hover);
+  border-left-color: var(--copper-soft);
+}
+
+.planet-card:focus-visible {
+  outline: 3px solid var(--copper-soft);
+  outline-offset: 3px;
+}
+
+.planet-card h2 {
+  color: var(--text-light);
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+}
+
+.planet-card .meta {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  color: var(--muted-text);
+}
+
+.planet-card .fun-fact {
+  display: none;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--card-border);
+  font-style: italic;
+  color: var(--text-light);
+}
+
+.planet-card.revealed .fun-fact {
+  display: block;
+}
+
+.planet-card .card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.planet-card .hint {
+  font-size: 0.8rem;
+  color: var(--muted-text);
 }
 
 button {
-    background-color: #8b0000;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 5px;
-    padding: 10px 18px;
+  font: inherit;
+  background-color: var(--copper);
+  color: var(--text-light);
+  border: 2px solid var(--copper-deep);
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
 button:hover {
-    background-color: #b22222;
+  background-color: var(--copper-deep);
 }
 
-.squares {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+button:focus-visible {
+  outline: 3px solid var(--copper-soft);
+  outline-offset: 3px;
 }
 
-.square {
-    background-color: red;
-    border: 3px solid #333333;
-    height: 100px;
-    width: 100px;
+.planet-card button.delete-btn {
+  background-color: var(--ink-deep);
+  color: var(--text-light);
+  border-color: var(--ink);
+  padding: 6px 12px;
+  font-size: 0.85rem;
 }
 
-h3 {
-    margin-bottom: 8px;
+.planet-card button.delete-btn:hover {
+  background-color: var(--ink);
+}
+
+/* Optional challenge: animated rings on hover for hasRings planets */
+.planet-card.has-rings {
+  overflow: visible;
+}
+
+.planet-card.has-rings::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 40%;
+  border: 3px solid var(--copper);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.planet-card.has-rings:hover::after {
+  opacity: 0.55;
+  animation: spin-ring 3.5s linear infinite;
+}
+
+@keyframes spin-ring {
+  from {
+    transform: translate(-50%, -50%) rotate(-18deg) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(342deg) scale(1);
+  }
+}
+
+.empty-message {
+  color: var(--muted-text);
+  font-style: italic;
+}
+
+@media (max-width: 650px) {
+  #wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    padding: 16px;
+  }
 }
