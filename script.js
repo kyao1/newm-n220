@@ -1,92 +1,99 @@
-//Variables
-var num = 0;
-var square1Step = 0;
-var square2Step = 0;
-var square3Step = 0;
+const wrapper = document.getElementById("wrapper");
 
+console.log(wrapper);
 
-//functions
-function addOne() {
-    num = num + 1;
-    document.getElementById("count").textContent = num;
+const planets = [
+  {
+    name: "Mars",
+    order: 4,
+    diameterKm: 6779,
+    funFact: "Mars is only about half of Earth's diameter, but its dry-land surface area is roughly the same as Earth's."
+  },
+  {
+    name: "Jupiter",
+    order: 5,
+    diameterKm: 139820,
+    funFact: "Jupiter has the shortest day of any planet in the solar system, it spins all the way around in just 9.9 hours."
+  },
+  {
+    name: "Saturn",
+    order: 6,
+    diameterKm: 116460,
+    funFact: "Saturn is so light for its size that it's the only planet in the solar system less dense than water."
+  },
+  {
+    name: "Uranus",
+    order: 7,
+    diameterKm: 50724,
+    funFact: "Uranus is tilted 97.77°. it rolls like a ball, giving each pole 21 year days and 21 year nights."
+  },
+  {
+    name: "Neptune",
+    order: 8,
+    diameterKm: 49528,
+    funFact: "Neptune is the windiest place in the solar system."
+  },
+  {
+    name: "Mercury",
+    order: 1,
+    diameterKm: 4879,
+    funFact: "A single Mercury day (sunrise to sunrise) lasts 176 Earth days, nearly two full Mercury years."
+  }
+];
+function renderPlanets() {
+  wrapper.innerHTML = "";
+planets.forEach((planet, index) => {
+  const card = document.createElement("div");
+  card.classList.add("planet-card");
+  card.innerHTML = `
+  <h2>${planet.name}</h2>
+  <p>Order from the Sun: ${planet.order}</p>
+  <p>Diameter: ${planet.diameterKm} km</p>
+`;
+  const details = document.createElement("p");
+  card.appendChild(details);
+
+  card.addEventListener("click", () => {
+    details.innerHTML = planet.funFact;
+  });
+const deleteButton = document.createElement("button");
+deleteButton.innerHTML = "Delete";
+deleteButton.addEventListener("click", (event) => {
+  event.stopPropagation();
+  planets.splice(index, 1);
+  renderPlanets();
+});
+card.appendChild(deleteButton);
+  wrapper.appendChild(card);
+});
 }
 
-function addFive() {
-    num = num + 5;
-    document.getElementById("count").textContent = num;
-}
+renderPlanets();
+const sortOrderButton = document.getElementById("sortOrder");
 
-function addTen() {
-    num = num + 10;
-    document.getElementById("count").textContent = num;
-}
+let closestFirst = true;
 
-function changeTheme() {
-    document.body.classList.toggle("dark");
-}
+sortOrderButton.addEventListener("click", () => {
+  if (closestFirst) {
+    planets.sort((a, b) => a.order - b.order);
+  } else {
+    planets.sort((a, b) => b.order - a.order);
+  }
 
-function cycleSquare1() {
-    square1Step = square1Step + 1;
+  closestFirst = !closestFirst;
+  renderPlanets();
+});
+const sortDiameterButton = document.getElementById("sortDiameter");
 
-    if (square1Step === 1) {
-        document.getElementById("square1").style.backgroundColor = "yellow";
-    } else if (square1Step === 2) {
-        document.getElementById("square1").style.backgroundColor = "blue";
-    } else {
-        document.getElementById("square1").style.backgroundColor = "red";
-        square1Step = 0;
-    }
-}
+let smallestFirst = true;
 
-function cycleSquare2() {
-    square2Step = square2Step + 1;
+sortDiameterButton.addEventListener("click", () => {
+  if (smallestFirst) {
+    planets.sort((a, b) => a.diameterKm - b.diameterKm);
+  } else {
+    planets.sort((a, b) => b.diameterKm - a.diameterKm);
+  }
 
-    if (square2Step === 1) {
-        document.getElementById("square2").style.backgroundColor = "yellow";
-    } else if (square2Step === 2) {
-        document.getElementById("square2").style.backgroundColor = "blue";
-    } else {
-        document.getElementById("square2").style.backgroundColor = "red";
-        square2Step = 0;
-    }
-}
-
-function cycleSquare3() {
-    square3Step = square3Step + 1;
-
-    if (square3Step === 1) {
-        document.getElementById("square3").style.backgroundColor = "yellow";
-    } else if (square3Step === 2) {
-        document.getElementById("square3").style.backgroundColor = "blue";
-    } else {
-        document.getElementById("square3").style.backgroundColor = "red";
-        square3Step = 0;
-    }
-}
-
-function resetPage() {
-    num = 0;
-    document.getElementById("count").textContent = num;
-
-    document.body.classList.remove("dark");
-
-    document.getElementById("square1").style.backgroundColor = "red";
-    document.getElementById("square2").style.backgroundColor = "red";
-    document.getElementById("square3").style.backgroundColor = "red";
-
-    square1Step = 0;
-    square2Step = 0;
-    square3Step = 0;
-}
-
-
-//events listeners
-document.getElementById("add1").addEventListener("click", addOne);
-document.getElementById("add5").addEventListener("click", addFive);
-document.getElementById("add10").addEventListener("click", addTen);
-document.getElementById("themeButton").addEventListener("click", changeTheme);
-document.getElementById("resetButton").addEventListener("click", resetPage);
-
-document.getElementById("square1").addEventListener("mouseover", cycleSquare1);
-document.getElementById("square2").addEventListener("mouseover", cycleSquare2);
-document.getElementById("square3").addEventListener("mouseover", cycleSquare3);
+  smallestFirst = !smallestFirst;
+  renderPlanets();
+});
