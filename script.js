@@ -10,7 +10,7 @@ async function grabAllBreeds() {
     
     const featuredBreeds = breeds.slice(0, 8);
 
-    console.log(featureBreeds);
+    console.log(featuredBreeds);
 }
 
 grabAllBreeds();
