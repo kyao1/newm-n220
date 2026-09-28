@@ -7,8 +7,10 @@ async function grabAllBreeds() {
     const data = await response.json();
     
     const breeds = Object.keys(data.message);
+    
+    const featuredBreeds = breeds.slice(0, 8);
 
-    console.log(breeds);
+    console.log(featureBreeds);
 }
 
 grabAllBreeds();
