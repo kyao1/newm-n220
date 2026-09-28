@@ -37,3 +37,20 @@ async function grabBreedImage(breed) {
 
     return data.message;
 }
+
+function renderBreed(breed, image) {
+
+    const ele = document.createElement("div");
+
+    const eleName = document.createElement("h2");
+    eleName.innerHTML = breed;
+
+    const eleImage = document.createElement("img");
+    eleImage.src = image;
+    eleImage.alt = breed;
+
+    ele.appendChild(eleImage);
+    ele.appendChild(eleName);
+
+    document.getElementById("wrapper").appendChild(ele);
+}
