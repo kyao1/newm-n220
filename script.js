@@ -15,4 +15,25 @@ async function grabAllBreeds() {
     return firstEight;
 }
 
-grabAllBreeds();
+grabAllBreeds().then((breeds) => {
+
+    breeds.forEach((breed) => {
+
+        grabBreedImage(breed).then((image) => {
+            console.log(breed, image);
+        });
+
+    });
+
+});
+
+async function grabBreedImage(breed) {
+
+    const response = await fetch(
+        "https://dog.ceo/api/breed/" + breed + "/images/random"
+    );
+
+    const data = await response.json();
+
+    return data.message;
+}
