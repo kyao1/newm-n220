@@ -8,11 +8,11 @@ async function grabAllBreeds() {
 
     const breeds = Object.keys(data.message);
 
-    const featuredBreeds = breeds.slice(0, 8);
+    const firstEight = breeds.slice(0, 8);
 
-    console.log(featuredBreeds);
+    console.log(firstEight);
 
-    return featuredBreeds;
+    return firstEight;
 }
 
 grabAllBreeds();
