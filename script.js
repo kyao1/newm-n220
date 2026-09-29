@@ -10,7 +10,7 @@ async function grabAllBreeds() {
 
     const firstEight = breeds.slice(0, 8);
 
-return firstEight;
+    return firstEight;
 }
 
 
