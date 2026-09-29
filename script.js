@@ -20,7 +20,8 @@ grabAllBreeds().then((breeds) => {
     breeds.forEach((breed) => {
 
         grabBreedImage(breed).then((image) => {
-            console.log(breed, image);
+    renderBreed(breed, image);
+});
         });
 
     });
