@@ -15,18 +15,19 @@ async function grabAllBreeds() {
     return firstEight;
 }
 
+
 grabAllBreeds().then((breeds) => {
 
     breeds.forEach((breed) => {
 
         grabBreedImage(breed).then((image) => {
-    renderBreed(breed, image);
-});
+            renderBreed(breed, image);
         });
 
     });
 
 });
+
 
 async function grabBreedImage(breed) {
 
@@ -38,6 +39,7 @@ async function grabBreedImage(breed) {
 
     return data.message;
 }
+
 
 function renderBreed(breed, image) {
 
