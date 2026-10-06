@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Breed Gallery</title>
+    <title>My Bookshelf</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Dog Breed Gallery</h1>
+    <h1>My Bookshelf</h1>
+
+    <button id="sortTitle">Sort by Title</button>
+    <button id="sortPages">Sort by Pages</button>
+    <button id="sortYear">Sort by Year</button>
+
+    <label for="genreFilter">Filter by Genre:</label>
+
+    <select id="genreFilter">
+    <option value="all">All</option>
+    <option value="Fiction">Fiction</option>
+    <option value="Historical">Historical</option>
+    <option value="Fantasy">Fantasy</option>
+</select>   
+
+
+
+    <p id="bookCount"></p>
 
     <div id="wrapper"></div>
 
     <script src="script.js"></script>
+
 </body>
-</html>   
+</html>
