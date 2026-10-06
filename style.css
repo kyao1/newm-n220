@@ -31,14 +31,14 @@ select {
 }
 
 .book {
-    background-color: ivory;
-    color: black;
+    background-color: green;
+    color: white;
     padding: 20px;
     border-left: 6px solid orange;
 }
 
 .book h2 {
-    color: darkgreen;
+    color: orange;
     margin-top: 0;
 }
 
