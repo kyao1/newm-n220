@@ -1,45 +1,64 @@
 body {
+    background-color: darkgreen;
+    color: white;
     font-family: Arial, sans-serif;
-    background-color: whitesmoke;
     margin: 0;
     padding: 30px;
 }
 
 h1 {
-    text-align: center;
+    color: orange;
+}
+
+button {
+    background-color: orange;
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+select {
+    padding: 10px;
 }
 
 #wrapper {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-#wrapper div {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
+.book {
+    background-color: ivory;
+    color: black;
+    padding: 20px;
+    border-left: 6px solid orange;
 }
 
-#wrapper img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
+.book h2 {
+    color: darkgreen;
+    margin-top: 0;
 }
 
-#wrapper h2 {
-    margin-bottom: 0;
-}
-@media (max-width: 900px) {
-    #wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.book p {
+    margin: 8px 0;
 }
 
 @media (max-width: 600px) {
     #wrapper {
         grid-template-columns: 1fr;
     }
+}
+
+#bookCount {
+    font-weight: bold;
+}
+select {
+    background-color: orange;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
 }
