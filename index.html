@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookshelf</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Night Picker</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div id="page">
+    <h1>Movie Night Picker</h1>
+             <p>Choose a movie for tonight.</p>
+    <div id="controls">
+      <button id="sortTitle">Sort by Title</button>
+      <button id="sortYear">Sort by Year</button>
 
-    <h1>My Bookshelf</h1>
+      <label for="genre">Filter by Genre:</label>
+      <select id="genre">
+        <option value="All">All Genres</option>
+        <option value="Action">Action</option>
+        <option value="Drama">Drama</option>
+        <option value="Comedy">Comedy</option>
+      </select>
 
-    <button id="sortTitle">Sort by Title</button>
-    <button id="sortPages">Sort by Pages</button>
-    <button id="sortYear">Sort by Year</button>
+      <button id="randomMovie">Pick a movie for tonight!</button>
+    </div>
 
-    <label for="genreFilter">Filter by Genre:</label>
+    <p id="movieCount"></p>
+    <p id="randomResult" hidden></p>
+    <div id="movieList"></div>
+  </div>
 
-    <select id="genreFilter">
-    <option value="all">All</option>
-    <option value="Fiction">Fiction</option>
-    <option value="Historical">Historical</option>
-    <option value="Fantasy">Fantasy</option>
-</select>   
-
-
-
-    <p id="bookCount"></p>
-
-    <div id="wrapper"></div>
-
-    <script src="script.js"></script>
-
+  <script src="app.js"></script>
 </body>
 </html>
