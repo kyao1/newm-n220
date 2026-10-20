@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Night Picker</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Roulette</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div id="page">
-    <h1>Movie Night Picker</h1>
-             <p>Choose a movie for tonight.</p>
-    <div id="controls">
-      <button id="sortTitle">Sort by Title</button>
-      <button id="sortYear">Sort by Year</button>
 
-      <label for="genre">Filter by Genre:</label>
-      <select id="genre">
-        <option value="All">All Genres</option>
-        <option value="Action">Action</option>
-        <option value="Drama">Drama</option>
-        <option value="Comedy">Comedy</option>
-      </select>
+    <h1>Trivia Roulette</h1>
 
-      <button id="randomMovie">Pick a movie for tonight!</button>
-    </div>
+    <button id="newQuestion">New Question</button>
 
-    <p id="movieCount"></p>
-    <p id="randomResult" hidden></p>
-    <div id="movieList"></div>
-  </div>
+    <div id="questionContainer"></div>
 
-  <script src="app.js"></script>
+    <p id="score">Score: 0 / 0</p>
+
+
+    <script src="app.js"></script>
+
 </body>
+
 </html>
