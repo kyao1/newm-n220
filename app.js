@@ -1,56 +1,50 @@
 
 const wrapper = document.getElementById("wrapper");
-const popUp = document.getElementById("pop");
-const view = document.getElementById("view");
+const search = document.getElementById("search");
+const count = document.getElementById("count");
 
-fetch("gallery.json")
+function convertString(str) {
+    return str.toLowerCase().replaceAll(" ", "");
+}
+
+fetch("glossary.json")
     .then(response => response.json())
     .then(list => {
         console.log(list);
 
-        const elements = list.map(itm => {
-            const ele = document.createElement("img");
-
-            ele.src = itm.src;
-            ele.alt = itm.caption;
-
-            return ele;
+        list.sort((a, b) => {
+            return a.term.localeCompare(b.term);
         });
 
-        elements.forEach(itm => {
-            wrapper.appendChild(itm);
-        });
+        function renderTerms(terms) {
+            wrapper.innerHTML = "";
 
-        function popAppear(index) {
-            if (index >= 0) {
-                view.innerHTML = "";
+            terms.forEach(item => {
+                const ele = document.createElement("div");
 
-                const photo = document.createElement("img");
-                photo.src = list[index].src;
-                photo.alt = list[index].caption;
+                const title = document.createElement("h3");
+                title.textContent = item.term;
 
-                const caption = document.createElement("p");
-                caption.textContent = list[index].caption;
+                const definition = document.createElement("p");
+                definition.textContent = item.definition;
 
-                view.appendChild(photo);
-                view.appendChild(caption);
+                ele.appendChild(title);
+                ele.appendChild(definition);
+                wrapper.appendChild(ele);
+            });
 
-                popUp.style.display = "flex";
-            }
+            count.textContent = "Showing " + terms.length + " of " + list.length + " terms";
         }
 
-        wrapper.addEventListener("click", (event) => {
-            const index = elements.indexOf(event.target);
+        renderTerms(list);
 
-            if (index >= 0) {
-                popAppear(index);
-            }
+        search.addEventListener("input", function () {
+            const searchValue = convertString(search.value);
+
+            const results = list.filter(item => {
+                return convertString(item.term).includes(searchValue);
+            });
+
+            renderTerms(results);
         });
-
-        popUp.addEventListener("click", (event) => {
-            if (event.target === popUp || event.target.id === "closeButt") {
-                popUp.style.display = "none";
-            }
-        });
-
     });
