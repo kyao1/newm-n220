@@ -1,0 +1,14 @@
+[
+  { "id": 1,  "name": "Fern Hollow Loop",      "park": "Cedar Bluff State Park",    "miles": 2.4,  "difficulty": "Easy" },
+  { "id": 2,  "name": "Ridgeback Trail",       "park": "Cedar Bluff State Park",    "miles": 6.8,  "difficulty": "Hard" },
+  { "id": 3,  "name": "Heron Marsh Boardwalk", "park": "Willow Flats Preserve",     "miles": 1.1,  "difficulty": "Easy" },
+  { "id": 4,  "name": "Copper Creek Falls",    "park": "Stonegate Forest",          "miles": 4.2,  "difficulty": "Moderate" },
+  { "id": 5,  "name": "Old Quarry Path",       "park": "Stonegate Forest",          "miles": 3.5,  "difficulty": "Moderate" },
+  { "id": 6,  "name": "Summit Switchbacks",    "park": "Granite Peak Wilderness",   "miles": 9.3,  "difficulty": "Hard" },
+  { "id": 7,  "name": "Lantern Lake Shoreline","park": "Lantern Lake Recreation Area","miles": 3.0, "difficulty": "Easy" },
+  { "id": 8,  "name": "Pine Needle Ridge",     "park": "Granite Peak Wilderness",   "miles": 5.6,  "difficulty": "Moderate" },
+  { "id": 9,  "name": "Bluebell Meadow Walk",  "park": "Willow Flats Preserve",     "miles": 1.8,  "difficulty": "Easy" },
+  { "id": 10, "name": "Echo Canyon Rim",       "park": "Redstone Canyon Park",      "miles": 7.4,  "difficulty": "Hard" },
+  { "id": 11, "name": "Sandstone Arch Trail",  "park": "Redstone Canyon Park",      "miles": 2.9,  "difficulty": "Moderate" },
+  { "id": 12, "name": "Firefly Hollow",        "park": "Lantern Lake Recreation Area","miles": 2.2, "difficulty": "Easy" }
+]
