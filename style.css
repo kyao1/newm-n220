@@ -1,61 +1,91 @@
 body {
-    background-color: #102b22;
+    background-color: darkslategray;
     color: white;
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 25px;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
 }
 
 h1 {
     color: orange;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
 }
 
-label {
-    display: block;
+.intro {
     text-align: center;
-    margin-bottom: 10px;
-    font-size: 18px;
+    margin-bottom: 35px;
 }
 
-#search {
-    display: block;
-    width: 80%;
-    max-width: 500px;
-    padding: 12px;
-    margin: auto;
-    border: 2px solid orange;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-#count {
-    text-align: center;
+h2 {
     color: orange;
-    margin-top: 25px;
-    margin-bottom: 20px;
 }
 
-#wrapper {
-    max-width: 800px;
-    margin: auto;
+.trail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
-#wrapper div {
-    background-color: #244338;
-    border: 2px solid #37634b;
+.trail-card {
+    background-color: darkgreen;
+    border: 2px solid seagreen;
     border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 18px;
 }
 
-#wrapper h3 {
+.trail-card h3 {
     color: orange;
     margin-top: 0;
 }
 
-#wrapper p {
+.trail-card p {
     line-height: 1.5;
-    margin-bottom: 0;
+    margin: 8px 0;
+}
+
+.trail-card button {
+    background-color: darkslategray;
+    border: 2px solid orange;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 12px;
+    padding: 10px 15px;
+}
+
+.trail-card button:hover {
+    background-color: seagreen;
+}
+
+.trail-card button[aria-pressed="true"] {
+    background-color: orange;
+    color: black;
+}
+
+.saved-section {
+    border-top: 2px solid seagreen;
+    margin-top: 40px;
+    padding-top: 15px;
+}
+
+#savedCount {
+    color: orange;
+    font-weight: bold;
+}
+
+.empty-message {
+    color: white;
+    font-style: italic;
+}
+
+@media (max-width: 650px) {
+    .trail-grid {
+        grid-template-columns: 1fr;
+    }
 }
